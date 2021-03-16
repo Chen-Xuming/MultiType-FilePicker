@@ -15,7 +15,7 @@ Please star this library if you like it. :)
 
 ## Usage
 ### 1.Import to your project
-    compile 'com.vincent.filepicker:MultiTypeFilePicker:latestVersion' 
+    implementation 'com.vincent.filepicker:MultiTypeFilePicker:1.0.9' 
     
 ### 2.Start Activity For Result
     case R.id.btn_pick_image:

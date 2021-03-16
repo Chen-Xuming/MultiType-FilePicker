@@ -15,7 +15,7 @@ Please star this library if you like it. :)
 
 ## Usage
 ### 1.Import to your project
-    implementation 'com.vincent.filepicker:MultiTypeFilePicker:1.0.9' 
+    implementation 'com.github.Chen-Xuming:MultiType-FilePicker:1.0.9'
     
 ### 2.Start Activity For Result
     case R.id.btn_pick_image:

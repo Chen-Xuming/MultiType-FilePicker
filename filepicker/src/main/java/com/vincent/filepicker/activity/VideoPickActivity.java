@@ -54,7 +54,7 @@ public class VideoPickActivity extends BaseActivity {
     private TextView tv_count;
     private TextView tv_folder;
     private LinearLayout ll_folder;
-    private RelativeLayout rl_done;
+    private LinearLayout rl_done;
     private RelativeLayout tb_pick;
 
     @Override
@@ -107,7 +107,7 @@ public class VideoPickActivity extends BaseActivity {
             mProgressBar.setVisibility(View.GONE);
         }
 
-        rl_done = (RelativeLayout) findViewById(R.id.rl_done);
+        rl_done = (LinearLayout) findViewById(R.id.rl_done);
         rl_done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

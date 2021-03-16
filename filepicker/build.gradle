@@ -2,8 +2,7 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.2"
-
+    buildToolsVersion "28.0.3"
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 26
@@ -36,6 +35,24 @@ dependencies {
     compile 'com.bm.photoview:library:1.4.1'
     compile 'com.android.support:design:26.1.0'
     compile 'pub.devrel:easypermissions:0.3.0'
+
+    // 状态栏美化
+    implementation 'com.jaeger.statusbarutil:library:1.5.1'
+}
+
+/*
+        统一 support 版本：26.0.0
+ */
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                //这里指定需要统一的依赖版本,这里统一为26.0.0-alpha1
+                details.useVersion '26.1.0'
+            }
+        }
+    }
 }
 
 apply from: 'publish.gradle'

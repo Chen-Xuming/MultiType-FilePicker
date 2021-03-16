@@ -1,6 +1,7 @@
 package com.vincent.filepicker.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.jaeger.library.StatusBarUtil;
 import com.vincent.filepicker.Constant;
 import com.vincent.filepicker.DividerListItemDecoration;
 import com.vincent.filepicker.R;
@@ -67,15 +69,24 @@ public class AudioPickActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vw_activity_audio_pick);
 
+        StatusBarUtil.setColor(this, Color.parseColor("#373B3E"), 0);
+
         mMaxNumber = getIntent().getIntExtra(Constant.MAX_NUMBER, DEFAULT_MAX_NUMBER);
+
+        tv_count = (TextView) findViewById(R.id.tv_count);
+        if(mMaxNumber == 1) tv_count.setVisibility(View.INVISIBLE);
+
         isNeedRecorder = getIntent().getBooleanExtra(IS_NEED_RECORDER, false);
         isTakenAutoSelected = getIntent().getBooleanExtra(IS_TAKEN_AUTO_SELECTED, true);
         initView();
+
     }
 
     private void initView() {
-        tv_count = (TextView) findViewById(R.id.tv_count);
+
         tv_count.setText(mCurrentNumber + "/" + mMaxNumber);
+
+
 
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_audio_pick);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);

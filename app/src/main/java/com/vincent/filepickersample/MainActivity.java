@@ -62,9 +62,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_pick_audio:
                 Intent intent3 = new Intent(this, AudioPickActivity.class);
-                intent3.putExtra(IS_NEED_RECORDER, true);
-                intent3.putExtra(Constant.MAX_NUMBER, 9);
-                intent3.putExtra(IS_NEED_FOLDER_LIST, true);
+                //intent3.putExtra(IS_NEED_RECORDER, true);
+                intent3.putExtra(Constant.MAX_NUMBER, 1);
+                //intent3.putExtra(IS_NEED_FOLDER_LIST, true);
                 startActivityForResult(intent3, Constant.REQUEST_CODE_PICK_AUDIO);
                 break;
             case R.id.btn_pick_file:

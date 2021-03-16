@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.vincent.filepickersample"
         minSdkVersion 14
@@ -28,4 +27,20 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
     compile project(':filepicker')
+}
+
+
+/*
+        统一 support 版本：26.0.0
+ */
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                //这里指定需要统一的依赖版本,这里统一为26.0.0-alpha1
+                details.useVersion '26.1.0'
+            }
+        }
+    }
 }
